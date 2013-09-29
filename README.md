@@ -13,7 +13,7 @@ COMPILE TOOLS
 
 AUTHORS
 ===============
-* Machulski
+* Oleg Machulski
 
 LINKS
 ===============
