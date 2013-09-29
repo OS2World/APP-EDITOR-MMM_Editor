@@ -1,0 +1,201 @@
+&<<&.MMx editor source
+mmmconst.h mmmconst.h mmmconst.h mmmconst.h mmmconst.h mmmconst.h mmmconst.h mmmconst.h mmmconst.h
+
+mmmx.h mmmx.h mmmx.h mmmx.h mmmx.h mmmx.h
+
+mmm_dos.h mmm_dos.h mmm_dos.h mmm_dos.h mmm_dos.h
+mmm_dos.cpp mmm_dos.cpp mmm_dos.cpp mmm_dos.cpp mmm_dos.cpp
+
+mmm_os2.h mmm_os2.h mmm_os2.h mmm_os2.h mmm_os2.h
+mmm_os2.cpp mmm_os2.cpp mmm_os2.cpp mmm_os2.cpp mmm_os2.cpp
+
+mmm_w95.h mmm_w95.h mmm_w95.h mmm_w95.h mmm_w95.h mmm_w95.h
+mmm_w95.cpp mmm_w95.cpp mmm_w95.cpp mmm_w95.cpp mmm_w95.cpp
+
+mmm_lnx.h mmm_lnx.h mmm_lnx.h mmm_lnx.h mmm_lnx.h mmm_lnx.h mmm_lnx.h
+mmm_lnx.cpp mmm_lnx.cpp mmm_lnx.cpp mmm_lnx.cpp mmm_lnx.cpp mmm_lnx.cpp
+
+mmm_comm.h mmm_comm.h mmm_comm.h mmm_comm.h mmm_comm.h
+
+mmm_unx.cpp mmm_unx.cpp mmm_unx.cpp mmm_unx.cpp mmm_unx.cpp
+mmm_nunx.cpp mmm_nunx.cpp mmm_nunx.cpp mmm_nunx.cpp mmm_nunx.cpp
+
+mmmgrep.h mmmgrep.h mmmgrep.h mmmgrep.h mmmgrep.h mmmgrep.h
+mmmgrep.cpp mmmgrep.cpp mmmgrep.cpp mmmgrep.cpp mmmgrep.cpp mmmgrep.cpp
+
+mmmtext.cpp mmmtext.cpp mmmtext.cpp mmmtext.cpp mmmtext.cpp
+
+mmmx.cpp mmmx.cpp mmmx.cpp mmmx.cpp mmmx.cpp mmmx.cpp mmmx.cpp
+
+makeos2
+makedos
+makelnx
+makedep.mif
+&>>&1E 0 15 0
+
+mmm_cfg.cpp mmm_cfg.cpp mmm_cfg.cpp mmm_cfg.cpp mmm_cfg.cpp mmm_cfg.cpp
+
+&<<&*MACRO*         
+&<<&Arithmetics & ...
+proc add 0 mathop endp
+proc sub 1 mathop endp
+proc mul 2 mathop endp
+proc div 3 mathop endp
+proc mod 4 mathop endp
+proc and 5 mathop endp
+proc or  6 mathop endp
+proc xor 7 mathop endp
+
+proc eq  0 predicate endp
+proc ne  1 predicate endp
+proc lt  2 predicate endp
+proc gt  3 predicate endp
+&>>&C 0 C 15
+&<<&proc PrintString
+proc PrintString
+    4 convert Enter pop
+endp
+&>>&1 0 1 9
+&<<&proc PrintInt
+proc PrintInt
+    dup
+    0 convert
+%    pop
+    PrintString
+endp
+&>>&2 0 2 5
+&<<&proc TestQuery
+proc TestQuery
+    query
+    0 convert
+    "type is:" pop
+    pop
+    "." pop
+endp
+&>>&7 0 7 0
+&<<&proc TestSgetSput
+proc TestSgetSput
+    "push5"
+    "push4"
+    "push3"
+    "push2"
+    "push1"
+
+    " !StrangeValue(for3)! " 3 sput
+    1 sget pop
+    2 sget pop
+    3 sget pop
+    4 sget pop
+    5 sget pop
+    %del del del del del
+    pop pop pop pop pop
+endp
+&>>&E 0 E 1
+&<<&proc TestIf
+proc TestIf
+    10 20 eq
+    if
+        "a = b" pop
+    else
+        "a != b" pop
+    endif
+
+    10 20 gt
+    if
+        "a > b" pop
+    else
+        "a < b" pop
+    endif
+endp
+&>>&8 0 8 0
+&<<&proc Test2Z
+proc Test2Z
+    dup 0 eq
+    if
+        "==0 " pop
+    else
+        dup 0 gt
+        if
+            ">0 " pop
+        else
+            "<0 " pop
+        endif
+    endif
+endp
+&>>&3 0 3 0
+&<<&proc TestDo
+proc TestDo
+'a'
+dup 'z' lt
+do
+    Down TLeft
+    dup 6 convert pop % enumerate lines by letters a-z
+    1 add
+    dup 'z' lt
+enddo
+
+endp
+&>>&5 0 5 0
+&<<&proc TestIoctl
+proc TestIoctl
+    "typing mode :" pop  1 ioctl if "Ins" else "Ovr" endif          pop Enter
+    "search :" pop  3 ioctl if "sensetive" else "insensetive" endif pop Enter
+    "In Search Page :" pop  0a ioctl if "yes" else "no" endif       pop Enter
+    "In Temp Page :" pop  0b ioctl if "yes" else "no" endif         pop Enter
+    "Number Of lines:" pop 0c  ioctl 1 convert                      pop Enter
+    "Number Of col-s:" pop 0d  ioctl 1 convert                      pop Enter
+    "Line Number    :" pop 012 ioctl 1 convert                      pop Enter
+    "cx=" pop     0e  ioctl  1 convert                              pop Enter
+    "sx=" pop     0f  ioctl  1 convert                              pop Enter
+    "sy=" pop     011 ioctl  1 convert                              pop Enter
+endp
+&>>&2 0 2 0
+&<<&proc nPRight
+proc nPRight
+    4 push 20 gt
+    do
+        Right
+        4 push 20 gt
+    enddo
+
+    4 push 20 eq
+    do
+        Right
+        4 push
+        4 push 20 eq
+    enddo
+endp
+&>>&0 0 0 0
+
+proc HelloWorld
+    nPRight
+endp
+&>>&9 0 9 5
+c:\mim\mmm_base.cfg
+&<<&(ëÏÄÉÒÏ×ËÁ KOI8)  (€«ìâ¥à­ â¨¢­ ï ª®¤¨à®¢ª .) (ºÞÔØàÞÒÚÐISO)
+(ëÏÄÉÒÏ×ËÁ KOI8)  (€«ìâ¥à­ â¨¢­ ï ª®¤¨à®¢ª .) (ºÞÔØàÞÒÚÐ ISO)
+
+ !"#$%&'()*+,-./
+0123456789:;<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~
+€‚ƒ„…†‡ˆ‰Š‹ŒŽ
+‘’“”•–—˜™š›œžŸ
+ ¡¢£¤¥¦§¨©ª«¬­®¯
+°±²³´µ¶·¸¹º»¼½¾¿
+ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ
+ÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß
+àáâãäåæçèéêëìíîï
+ðñòóôõö÷øùúûüýþÿ
+
+&>>&0 0 0 C
+tex/
+compiler/
+
+d:\os2\mmm_base.cfg
+
+d:\os2\mmm_base.cfg
+../../mmm_base.cfg
+&>>&E 0 E 0

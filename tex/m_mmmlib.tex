@@ -1,0 +1,168 @@
+
+\if 0
+%&<<&Russian
+\halign{ {\tt{#}} & # \hfil \cr
+  Up            & --- 1 символ вверх                                             \cr
+  Down          & --- 1 символ вниз                                              \cr
+  Left          & --- 1 символ влево                                             \cr
+  Right         & --- 1 символ вправо                                            \cr
+  TUp           & --- до конца вверх                                             \cr
+  TDown         & --- до конца вниз                                              \cr
+  TLeft         & --- до конца влево                                             \cr
+  TRight        & --- до конца вправо                                            \cr
+  PUp           & --- 1 экран вверх                                              \cr
+  PDown         & --- 1 экран вниз                                               \cr
+  FUp           & --- на 1 уровень вверх                                         \cr
+  FDown         & --- на 1 уровень вниз (войти в файл/фолд/каталог)              \cr
+  FLeft         & --- следующая страница                                         \cr
+  FRight        & --- предыдующая страница                                       \cr
+  Enter         & --- на следующую строку                                        \cr
+  Tab           & --- Tab                                                        \cr
+  LTab          & --- BackTab                                                    \cr
+  InsCh         & --- Вставить символ                                            \cr
+  DelCh         & --- Удалить символ                                             \cr
+  InsLine       & --- Вставить строку                                            \cr
+  InsFold       & --- Вставить Fold                                              \cr
+  DelLine       & --- Удалить строку (Fold)                                      \cr
+  BS            & --- BackSpace                                                  \cr
+  KillEnd       & --- Удалить символы за курсором                                \cr
+  KillBeg       & --- Удалить символы перед курсором                             \cr
+  CSave         & --- Копировать символ в CharClipboard                          \cr
+  CMove         & --- Переместить символ в CharClipboard                         \cr
+  WSave         & --- Копировать слово в CharClipboard                           \cr
+  WMove         & --- Переместить слово в CharClipboard                          \cr
+  BWord         & --- Встать на начало слова                                     \cr
+  TSave         & --- Копировать символы до конца строки в CharClipboard         \cr
+  TMove         & --- Переместить символы до конца строки в CharClipboard        \cr
+  CRest         & --- Копировать символы из CharClipboard в текст                \cr
+  CClear        & --- Очистить CharClipboard                                     \cr
+  LSave         & --- Копировать строку в LineClipboard                          \cr
+  LTSave        & --- Копировать строки до конца фолда в LineClipboard           \cr
+  LMove         & --- Переместить строку в LineClipboard                         \cr
+  LTMove        & --- Переместить строки до конца фолда в LineClipboard          \cr
+  LRest         & --- Копировать строки из LineClipboard в текст                 \cr
+  LClear        & --- Очистить LineClipboard                                     \cr
+  Escape        & --- Выйти в OS                                                 \cr
+  EscapeExec    & --- Выйти в OS, выполнив текущую строку                        \cr
+  EscapeExecLCB & --- Выйти в OS, выполнив строки из LineClipboard               \cr
+  ABORT         & --- Выйти в OS, не сохраняя файлы                              \cr
+  S\_AutoIndent & --- Включить/выключить автоотступ                              \cr
+  S\_ModeIns    & --- Включить режим вставки                                     \cr
+  S\_ModeOvr    & --- Включить режим замены                                      \cr
+  S\_ACode1     & --- Установить 1-ю раскладку клавиатуры                        \cr
+  S\_ACode2     & --- Установить 2-ю раскладку клавиатуры (default)              \cr
+  S\_ACode3     & --- Установить 3-ю раскладку клавиатуры                        \cr
+  S\_StatusLine & --- Включить/выключить статусную строку                        \cr
+  S\_SearchMode & --- Режим поиска Sensetive/Insensetive                         \cr
+  SearchFWD     & --- Поиск вперед                                               \cr
+  SearchBCK     & --- Поиск назад                                                \cr
+  Replace       & --- Замена / поиск                                             \cr
+  SearchPage    & --- Переключиться в/из страницу со строками для поиска         \cr
+  PageIns       & --- Войти в файл/фолд/каталог с созданием новой страницы       \cr
+  MarkUp        & --- Пометить строку, сдвинуться вверх                          \cr
+  MarkDown      & --- Пометить строку, сдвинуться вниз                           \cr
+  MarkTUp       & --- Пометить строки до начала фолда                            \cr
+  MarkTDown     & --- Пометить строки до начала фолда                            \cr
+  MarkPUp       & --- Пометить строки на 1 экран вверх                           \cr
+  MarkPDown     & --- Пометить строки на 1 экран вниз                            \cr
+  MarkSaveB     & --- Запомнить помеченные строки                                \cr
+  MarkRestB     & --- Вспомнить помеченные строки вниз от текущей позиции        \cr
+  MarkLast      & --- Последняя помеченная строка                                \cr
+  MarkFirst     & --- Первая помеченная строка                                   \cr
+  MarkPrev      & --- Предыдущая помеченная строка                               \cr
+  MarkNext      & --- Следующая помеченная строка                                \cr
+  MarkBS        & --- Встать на последнюю помеченнуя строку и снять помеченность \cr
+  Ascii0        & --- Вывод символа (Для цифр)                                   \cr
+  Ascii1        & --- Вывод символа (Для букв)                                   \cr
+  Ascii2        & --- Вывод символа (Для разделительных символов)                \cr
+  Space         & --- Вывод пробела                                              \cr
+  Macro         & --- Выполнение / конец записи макроса                          \cr
+  MacroRec      & --- начало записи макроса                                      \cr
+  Console       & --- Switch to another console (only for Linux) \cr
+}
+%&>>&4F 0 17 0
+\else
+%&<<&English
+\halign{ {\tt{#}} & # \hfil \cr
+  Up            & --- Move 1 symbol Up                       \cr
+  Down          & --- Move 1 symbol Down                     \cr
+  Left          & --- Move 1 symbol Left                     \cr
+  Right         & --- Move 1 symbol Right                    \cr
+  TUp           & --- Move to the top        of Fold         \cr
+  TDown         & --- Move to the bottom     of Fold         \cr
+  TLeft         & --- Move to the beginning  of Line         \cr
+  TRight        & --- Move to the end        of Line         \cr
+  PUp           & --- Move 1 screen Up                       \cr
+  PDown         & --- Move 1 screen Down                     \cr
+  FUp           & --- Exit from File / Fold / Directory      \cr
+  FDown         & --- Enter into File / Fold / Directory     \cr
+  FLeft         & --- Go to the Previous page                \cr
+  FRight        & --- Go to the next     page                \cr
+  Enter         & --- Go to the beginning of the next Line   \cr
+  Tab           & --- Tab                                    \cr
+  LTab          & --- BackTab                                \cr
+  InsCh         & --- Insert symbol                          \cr
+  DelCh         & --- Delete symbol under the cursor         \cr
+  InsLine       & --- Insert empty Line before current Line  \cr
+  InsFold       & --- Insert       Fold before current Line  \cr
+  DelLine       & --- Delete current Line / Fold             \cr
+  BS            & --- BackSpace                                   \cr
+  KillEnd       & --- Delete end       of Line               \cr
+  KillBeg       & --- Delete beginning of Line               \cr
+  CSave         & --- Copy symbol to CharClipboard           \cr
+  CMove         & --- Move symbol to CharClipboard           \cr
+  WSave         & --- Copy word to CharClipboard             \cr
+  WMove         & --- Move word to CharClipboard             \cr
+  BWord         & --- Go to the beginning of current word    \cr
+  TSave         & --- Copy all symbols till end of Line to CharClipboard \cr
+  TMove         & --- Move all symbols till end of Line to CharClipboard \cr
+  CRest         & --- Copy symbols from CharClipboard into text \cr
+  CClear        & --- Clear CharClipboard                    \cr
+  LSave         & --- Copy current Line to LineClipboard     \cr
+  LTSave        & --- Copy all Lines after current to LineClipboard \cr
+  LMove         & --- Move Line to LineClipboard             \cr
+  LTMove        & --- Move all Lines after current to LineClipboard \cr
+  LRest         & --- Copy Lines from LineClipboard into text \cr
+  LClear        & --- Clear LineClipboard                    \cr
+  Escape        & --- Exit to OS                             \cr
+  EscapeExec    & --- Exit to OS and execute current Line    \cr
+  EscapeExecLCB & --- Exit to OS and execute Lines from LineClipboard  \cr
+  ABORT         & --- Exit to OS without saving files and configuration \cr
+  S\_AutoIndent & --- Switch autoindent on/off               \cr
+  S\_ModeIns    & --- Switch to Insert    mode               \cr
+  S\_ModeOvr    & --- Switch to Overwrite mode               \cr
+  S\_ACode1     & --- Set 1-st keyboard layout as ALT              \cr
+  S\_ACode2     & --- Set 2-nd keyboard layout as ALT  (default)   \cr
+  S\_ACode3     & --- Set 3-rd keyboard layout as ALT              \cr
+  S\_StatusLine & --- Switch status line on/off              \cr
+  S\_SearchMode & --- Switch search mode: Sensetive/Insensetive \cr
+  SearchFWD     & --- Search Forward                         \cr
+  SearchBCK     & --- Search Backward                        \cr
+  Replace       & --- Search / replace                       \cr
+  SearchPage    & --- Switch to/from Search page             \cr
+  PageIns       & --- Enter File/Fold/Directory with new Page insertion \cr
+  MarkUp        & --- Mark Line and move Up                  \cr
+  MarkDown      & --- Mark Line and move Down                \cr
+  MarkTUp       & --- Mark Lines till the beginning of Fold  \cr
+  MarkTDown     & --- Mark Lines till the end       of Fold  \cr
+  MarkPUp       & --- Mark Lines one screen Up               \cr
+  MarkPDown     & --- Mark Lines one screen Down             \cr
+  MarkSaveB     & --- Save marked Lines buffers              \cr
+  MarkRestB     & --- Restore marked Lines buffers           \cr
+  MarkLast      & --- Go to last  marked Line                \cr
+  MarkFirst     & --- Go to first marked Line                \cr
+  MarkPrev      & --- Go to previous marked Line             \cr
+  MarkNext      & --- Go to next     marked Line             \cr
+  MarkBS        & --- Go to last marked Line and unmark it   \cr
+  Ascii0        & --- Symbol output (for digits)             \cr
+  Ascii1        & --- Symbol output (for letters)            \cr
+  Ascii2        & --- Symbol output (for delimiters)         \cr
+  Space         & --- Print space                            \cr
+  Macro         & --- Execute / stop recording Macro         \cr
+  MacroRec      & --- Start recording Macro                  \cr
+  Console       & --- Switch to another console (only for Linux) \cr
+}                 -
+%&>>&A 0 A 2
+\fi
+%%%%%% ../mmmx.h
+%&>>&2 0 2 0

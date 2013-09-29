@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>intro to MMM Editor</TITLE>
+</HEAD>
+<BODY>
+You can
+<A HREF="mmmdoc.tgz">Download TEX version</A>
+of this document, which
+is much more complete than HTML.
+
+<hr>
+
+<TABLE ALIGN=ABSCENTER BORDER=1 CELLSPACING=0 CELLPADDING=0 >
+<tr> <td> <b> Key      </b> </TD> <td>      .           </TD> <td> <b> Shift   </b>     </TD> <td> <b> Alt  </b>          </TD> <td> <b>  Ctrl  </b>            </TD> <td>  <b>  CAPS  </b>    </td>   </tr>
+<tr> <td> <b> Gray '*' </b> </TD> <td>  search forward  </TD> <td>   search back        </TD> <td>   replace/search       </TD> <td>  to/from search fold       </TD> <td>  change search mode </td>   </tr>
+<tr> <td> <b> Ins      </b> </TD> <td>  insert char     </TD> <td>   insert line        </TD> <td>   insert fold          </TD> <td>  switch to insert mode     </TD> <td>  Insert new page    </td>   </tr>
+<tr> <td> <b> Del      </b> </TD> <td>  delete char     </TD> <td>   delete line/fold   </TD> <td>   delete line/fold     </TD> <td>  switch to overwrite mode  </TD> <td>  .                  </td>   </tr>
+<tr> <td> <b> Up       </b> </TD> <td>  1 Line Up       </TD> <td>   1 Screen Up        </TD> <td>   exit from fold/file  </TD> <td>  to the top of the fold    </TD> <td>  Mark Up            </td>   </tr>
+<tr> <td> <b> Down     </b> </TD> <td>  1 Line Down     </TD> <td>   1 Screen Down      </TD> <td>   enter Fold/File/Dir  </TD> <td>  to the bottom of the fold </TD> <td>  Mark Down          </td>   </tr>
+<tr> <td> <b> Left     </b> </TD> <td>  1 char Left     </TD> <td>   1 Word Left        </TD> <td>   prev. page           </TD> <td>  to the begin of line      </TD> <td>  prev. Marked Line  </td>   </tr>
+<tr> <td> <b> Right    </b> </TD> <td>  1 char Right    </TD> <td>   1 Word Right       </TD> <td>   next. page           </TD> <td>  to the end of line        </TD> <td>  next Marked Line   </td>   </tr>
+</table>
+
+<hr>
+
+<TABLE ALIGN=ABSCENTER BORDER=1 CELLSPACING=0 CELLPADDING=0 >
+<tr> <td> <b>   Key        </b> </td> <td>          .               </td> <td>    <b>     Shift  </b> </td> <td>        <b>  Ctrl   </b>                </td></tr>
+<tr> <td> <b> CAPS+Left    </b> </td> <td> first/next marked line   </td> <td> .                      </td> <td>    first marked line                   </td></tr>
+<tr> <td> <b> CAPS+Right   </b> </td> <td> last/prev. marked line   </td> <td> .                      </td> <td>    last  marked line                   </td></tr>
+<tr> <td> <b> Tab          </b> </td> <td> tab                      </td> <td> back tab               </td> <td>    .                                   </td></tr>
+<tr> <td> <b> Enter        </b> </td> <td> next line                </td> <td> cut current line       </td> <td>    .                                   </td></tr>
+<tr> <td> <b> BS           </b> </td> <td> delete previous char     </td> <td> glue lines             </td> <td>    .                                   </td></tr>
+<tr> <td> <b> F1           </b> </td> <td> copy char to CCB         </td> <td> move char to CCB       </td> <td> copy all chars till end of line to CCB </td></tr>
+<tr> <td> <b> Alt+F1       </b> </td> <td> copy word to CCB         </td> <td> move word to CCB       </td> <td> copy all words till end of line to CCB </td></tr>
+<tr> <td> <b> F2           </b> </td> <td> copy chars from CCB      </td> <td> clear CCB              </td> <td>    .                                   </td></tr>
+<tr> <td> <b> F3           </b> </td> <td> copy line to LCB         </td> <td> move line to CCB       </td> <td> copy all lines till end of fold to LCB </td></tr>
+<tr> <td> <b> Shift+F3     </b> </td> <td> move line to LCB         </td> <td> move line to CCB       </td> <td> move all lines till end of fold to LCB </td></tr>
+<tr> <td> <b> F4           </b> </td> <td> copy lines from LCB      </td> <td> clear LCB              </td> <td>    .                                   </td></tr>
+<tr> <td> <b> F7           </b> </td> <td> Stop rec./execute TMacro </td> <td> Start recording TMacro </td> <td>    .                                   </td></tr>
+<tr> <td> <b> Gray '+'     </b> </td> <td> delete current word      </td> <td> delete end of line     </td> <td> delete beginning of line               </td></tr>
+<tr> <td> <b> Gray '-'     </b> </td> <td> delete current word      </td> <td> delete end of line     </td> <td> delete beginning of line               </td></tr>
+<tr> <td> <b> Esc          </b> </td> <td> temporary exit to OS     </td> <td> execute current line   </td> <td>    .                                   </td></tr>
+</table>
+
+<hr>
+
+<table>
+<tr> <td> Shift+Ctrl+Alt+Esc <td> - ABORT: exit without saving.      <td></tr>
+<tr> <td> Alt+Enter          <td> - switch AutoIndent on/off         <td></tr>
+<tr> <td> CAPS+BS            <td> - unmark last marked line          <td></tr>
+<tr> <td> Alt+F4             <td> - execute clipboard                <td></tr>
+<tr> <td> F5                 <td> - put marked block to stack        <td></tr>
+<tr> <td> F6                 <td> - get marked block from stack      <td></tr>
+<tr> <td> CAPS + '1'         <td> - switch to Qq keyboard as alt     <td></tr>
+<tr> <td> CAPS + '2'         <td> - switch to Qj keyboard as alt     <td></tr>
+<tr> <td> CAPS + '3'         <td> - switch to Q\# keyboard as alt    <td></tr>
+<tr> <td> Ctrl + 'S'         <td> - switch status line ON/OFF        <td></tr>
+</table>
+
+</BODY>
+</HTML>
+&>>&C 0 C 0

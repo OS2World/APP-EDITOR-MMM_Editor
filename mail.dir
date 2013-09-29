@@ -1,0 +1,41 @@
+-1. I can't write anything to /incoming directory
+   "Permission denied" Get it in UUE
+
+0. I haven't russian fonts in my X & because of it
+   I can't read anything on Your WWW site. If it's
+   possible, please, make english version of LinuxPage.
+
+&<<&1. mmm.tgz archive contains MMM related stuff:
+1. mmm.tgz archive contains MMM related stuff:
+    1) Sources (28.11.96 version)
+    2) Documentation in "TEX" directory.
+        some files are russian in ALT encoding.
+    3) Html page in "html" directory.
+        mmm.html - mmm description page
+        mmmcmd.html - Keyboard layout description, but .tex
+            version of documentation is much better.
+    4) "COMPILER" directory contains some parts of
+        MMl programming language compiler, but now
+        it doesn't work.
+
+&>>&B 0 B 0
+
+Now work on program & documentation is in progress & if You want I can
+send You new versions. Generally I want to write normal
+(complete & readable) documentation.
+Maybe it's not a bad idea to test "MMM_DOCUMENTATION_PROJECT" on you.
+It seems to me that now most files are unreadable.
+
+mmm.tgz not contains: some text conversion utilities. Unfortunately
+i haven't them here. I can ftp this stuff later if it's nessesary.
+
+3. I'd like to get (buy) CD-DISK with distribution (and sources)
+    of Linux (of course new versions) I prefere RedHat distribution,
+    but Slackware also is not bad.
+
+
+
+                                                Oleg Machulski
+
+PS: scuse me for some mistakes.
+&>>&1 0 1 0

@@ -1,0 +1,32 @@
+mmm.sty mmm.sty mmm.sty mmm.sty mmm.sty
+
+&<<&mmm_grep.tex
+call lhamstex mmm_grep.tex
+call v_lj_lh mmm_grep.dvi
+&>>&1 0 1 0
+mmm_grep.tex mmm_grep.tex mmm_grep.tex mmm_grep.tex mmm_grep.tex
+
+&<<&mmm_cmd.
+call lhamstex mmm_cmd.tex
+call v_lj_lh mmm_cmd.dvi
+rem call pr_dj_lh mmm_cmd.dvi
+&>>&2 0 2 D
+mmm_cmd.tex mmm_cmd.tex mmm_cmd.tex mmm_cmd.tex mmm_cmd.tex
+
+&<<&mmm_lang.tex
+call lhamstex mmm_lang.tex
+call v_lj_lh mmm_lang.dvi
+call pr_ljfil mmm_lang.dvi
+&>>&2 0 2 0
+mmm_lang.tex mmm_lang.tex mmm_lang.tex mmm_lang.tex mmm_lang.tex
+
+&<<&mmm_apdx.tex
+call lhamstex mmm_apdx.tex
+call v_lj_lh mmm_apdx.dvi
+call pr_ljfil mmm_apdx.dvi
+&>>&2 0 2 0
+mmm_apdx.tex mmm_apdx.tex mmm_apdx.tex mmm_apdx.tex mmm_apdx.tex
+m_kbddef.tex m_kbddef.tex m_kbddef.tex m_kbddef.tex m_kbddef.tex
+m_mmmlib.tex m_mmmlib.tex m_mmmlib.tex m_mmmlib.tex m_mmmlib.tex
+
+&>>&C 0 C 4

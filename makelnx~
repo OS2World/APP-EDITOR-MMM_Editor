@@ -1,0 +1,32 @@
+CPP=c++
+CFLAGS=
+LINK=c++
+
+all: mmx mmm_cfg
+
+%.o: %.cpp
+	$(CPP) $(CFLAGS) -c -o $@ $<
+
+mmx : mmmx.o mmmtext.o mmmgrep.o mmm_lnx.o mmm_unx.o
+	$(LINK) -o mmx   mmmx.o mmmtext.o mmmgrep.o mmm_lnx.o mmm_unx.o
+
+mmm_cfg : mmm_cfg.o
+	$(LINK) -o mmm_cfg  mmm_cfg.o
+
+mmmx.obj     : mmmx.cpp     mmmx.h mmmconst.h mmm_comm.h mmmgrep.h mmm_lnx.h
+
+mmmtext.obj  : mmmtext.cpp  mmmx.h mmm_comm.h mmmgrep.h mmmconst.h
+
+mmm_os2.obj  : mmm_os2.cpp  mmm_os2.h  mmmx.h mmmconst.h
+mmm_dos.obj  : mmm_dos.cpp  mmm_dos.h  mmmx.h mmmconst.h
+mmm_lnx.obj  : mmm_lnx.cpp  mmm_lnx.h  mmmx.h mmmconst.h
+mmm_w95.obj  : mmm_w95.cpp  mmm_w95.h  mmmx.h mmmconst.h
+
+mmmgrep.obj  : mmmgrep.cpp  mmmgrep.h  mmmx.h mmmconst.h
+
+mmm_nunx.obj : mmm_nunx.cpp mmm_comm.h mmmx.h mmmconst.h
+
+mmm_cfg.obj  : mmm_cfg.cpp  mmmx.h mmmconst.h
+
+
+#&>>&10 0 10 0

@@ -1,0 +1,178 @@
+\input mmm.sty
+
+В редакторе существуют команды 3-х типов:
+
+{\bf a) } Базовые команды {\tt MMMlib}, написаны на C++, являются частью редактора
+
+{\bf b) } Макросы {\tt MACRO\_PROC}, пишутся на языке {\tt MMM}, компилируются в
+     процессе инициализации редактора
+
+{\bf c) } Макросы {\tt MACRO\_KEYSEQ}, являются просто последовательностями
+   scan-кодов.
+
+\themebigskip
+%&<<&\centerline{{\bf 1. Структура данных:}}
+\centerline{{\bf 1. Структура данных}}
+\themeskip
+%&<<&TPair\_String\_Function
+ На глобальном уровне определен массив {\tt CommandArray}
+ длины {\tt LEN\_COMMAND\_ARRAY } из элементов типа:
+%&<<&struct TPair\_String\_Function {
+\par
+\halign{
+{\tt # } \hfil & {\tt //} {\it # } \hfil \cr
+struct TPair\_String\_Function $\{$        &                         \cr
+\quad  char *fName;        &  имя функции из MMMlib  \cr
+\quad  void (*fRef)(int);  &  ссылка на функцию      \cr
+\quad  $\}$;                 &                         \cr
+}
+%&>>&3 0 3 15
+ В нем хранятся ссылки на команды из {\tt MMMlib}.
+
+%&>>&4 0 4 15
+\themeskip
+%&<<&TMacro
+Макросы типов {\tt MACRO\_PROC} и {\tt MACRO\_KEYSEQ}
+храненятся в структуре
+%&<<&struct TMacro {
+\par
+\halign{
+{\tt # } \hfil & {\tt //} {\it # } \hfil \cr
+struct TMacro $\{$                          &              \cr
+\quad  short *base;                       & тело макроса \cr
+\quad  int lbase;                         & размер выделенной памяти  \cr
+\quad                                     & \cr
+\quad  short \&operator[](int idx);       & ссылка на base[idx], делает realloc  \cr
+\quad  $\}$;                                & \cr
+}
+
+%&>>&8 0 8 B
+Тип макроса определяется значением {\tt base[0]} (там лежит
+одна из констант: {\tt MACRO\_PROC} или {\tt MACRO\_KEYSEQ}).
+
+Макрокоманды хранятся в {\tt short *base;} следующим образом:
+0 обозначает конец макроса, возврат в вызывающую функцию.
+
+Числа с 1 до {\tt LEN\_LANGUAGE-1} -- используемые в языке конструкции
+такие, как {\tt if, else, do, end, push, eq, ... }. Данные команды могут при обработке
+({\tt Execute}) изменять счетчик команд.
+
+Числа с {\tt LEN\_LANGUAGE} до
+{\tt USER\_FUNC-1 =(LEN\_LANGUAGE+LEN\_COMMAND\_ARRAY)-1 }
+являются ссылками на функции из {\tt MMMlib }. Номер соответствующей
+функции получается посредством вычитания числа {\tt LEN\_LANGUAGE}.
+
+Числа большие {\tt USER\_FUNC} являются ссылками на определенные
+пользователем функции. Их номер в {\tt CommandUsrArray}
+получается посредством вычитания числа {\tt USER\_FUNC}.
+
+%&>>&2 0 2 1A
+\themeskip
+%&<<&TCommandUsr
+Для хранения ссылок определен массив {\tt CommandUsrArray } из элементов типа
+%&<<&struct TCommandUsr {
+\par
+\halign{
+{\tt # } \hfil & {\tt //} {\it # } \hfil \cr
+struct TCommandUsr $\{$                &     \cr
+\quad   char *fName;                 & имя функции \cr
+\quad   TMacro fCode;                & код функции \cr
+\quad                                &     \cr
+\quad   int Execute(int arg);        & выполнить fCode  \cr
+\quad   $\}$;                          &     \cr
+}
+%&>>&8 0 8 12
+На самом деле {\tt CommandUsrArray} является не массивом, а переменной
+типа {\tt TCommandUsrArray}. Для данного типа определена функция
+{\tt  int AddEntry(char *\_fname, TMacro *\_fcode=0); }, добавляющая элемент
+к масссиву. Если элемент с имененм {\tt \_fname } уже имеется, то происходит
+обновление кода.
+
+%&>>&1 0 1 12
+\themeskip
+%&<<&TKeyArray
+Для обработки scan-кодов, пришедших от клавиатуры используется
+структура {\tt KeyArray} типа {\tt TKeyArray }
+%&<<&struct TKeyArray $\{$
+\par
+\halign{
+{\tt # } \hfil & {\tt //} {\it # } \hfil \cr
+struct TKeyArray $\{$                           & \cr
+\quad  TKey *base;                            & вектор из TKey \cr
+\quad  int lbase;                             & размер выделенной памяти \cr
+\quad                                         & \cr
+\quad  int AddEntry(int \_scan, int \_fnum);  & добавить элемент, делает realloc \cr
+\quad  $\}$;                                    & \cr
+}
+%&>>&8 0 8 B
+
+%&<<&TKey
+\par
+\halign{
+{\tt # } \hfil & {\tt //} {\it # } \hfil \cr
+struct TKey $\{$                      & \cr
+\quad  int scan;                    & 12-ти битный scan-код \cr
+\quad  int fnum;                    & номер функции \cr
+\quad                               & \cr
+\quad  TKey() $\{$ scan= fnum= -1; $\}$ & \cr
+\quad  $\}$;                          & \cr
+}
+
+%&>>&8 0 8 B
+
+Конструктор {\tt TKey } инициализирует {\tt fnum } значением -1.
+Это исползуется для опознавания последнего элемента в {\tt KeyArray}.
+
+%&>>&4 0 4 15
+
+%&>>&9 0 9 0
+\themebigskip
+%&<<&\centerline{{\bf 2. Алгоритмы:}}
+\centerline{{\bf 2. Алгоритмы}}
+
+%&<<&CommandArray
+Инициализация массива {\tt CommandArray } осуществляется до создания
+всех других структур данных.
+
+%&>>&2 0 2 6
+%&<<&KeyArray
+Инициализация  {\tt KeyArray} происходит в функции {\tt InitEditorSetup }
+класса {\tt EDITOR } при обработке фолда {\tt *COMMAND*}. Если имя команды,
+указанное в файле настройки, содержится в массиве {\tt CommandArray}, то
+в {\tt KeyArray} добавляется еще один элемент с соответствующими scan-кодом
+и ссылкой на функцию. Если же функция не принадлежит {\tt MMMlib }, то
+Происходит вызов функции {\tt TCommandUsrArray::AddEntry}, которая
+ищет элемент с таким названием в {\tt CommandUsrArray}, и если
+он найден, то возвращает его номер, а если не найден, то
+добавляетс новый элемент к {\tt CommandUsrArray} и возвращает
+номер добавленного элемента. После этого
+в {\tt KeyArray} добавляется еще один элемент с
+соответствующим scan-кодом ссылкой на функцию, номер которой был
+возвращен {\tt TCommandUsrArray::AddEntry}.
+
+%&>>&E 0 E 9
+%&<<&CommandUsrArray
+Информация добавляется в {\tt CommandUsrArray} двумя способами:
+Первый был описан ранее и это происходит при обработке фолда
+{\tt *COMMAND*}, содержащего в себе информацию о раскладках
+клавиатуры. Следует заметить, что в этом случае происходит
+добавление только названий функций, а тела функций остаются
+пустыми.
+
+Тела функций, а также новые названия добавляются при обработке фолда
+{\tt *MACRO*}, который содержит определения макрокоманд на языке
+{\tt MMM}, близком по идеологии к языку Forth. Новый элемент добавляется к
+{\tt CommandUsrArray} при описании функции (например {\tt proc fName }).
+Помимо этого при компиляции функций из данного языка
+все нераспознанные лексемы считаются вызовами функций и их
+имена (с пустыми телами ф-й) добавляются к {\tt CommandUsrArray}.
+
+%&>>&9 0 9 0
+
+%&>>&4 0 4 0
+
+\end
+% mmm_cmd.log
+% ..\mmmx.cpp
+% ..\mmmx.h
+%&>>&0 0 0 0

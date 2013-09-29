@@ -1,0 +1,15 @@
+MMM is as small multi-platform text editor
+with some hypertext features.
+It supports regular expressions search (as GREP util. in UNIX),
+fully tunable keybioard & codepage layout,
+macrocommands (sequences of keystrokes & programming language).
+
+Platforms supported: i386 PC
+    + Linux console
+    + IBM OS/2 Warp+ (maybe 2.* +)
+    + MS Windows 95/NT console
+    + MS DOS (& clones)
+
+My Address  : machulsk@shade.msu.ru , machulsk@demos.ipi.ac.ru
+My HomePage : http://shade.msu.ru/~machulsk
+&>>&D 0 D 0

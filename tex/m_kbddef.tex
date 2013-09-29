@@ -1,0 +1,62 @@
+
+%&<<&Command table 1
+%\theme{Command table 1:}
+
+\vbox{\offinterlineskip
+\hrule
+\halign{ &\strut\vrule # \vrule & # \vrule & # & # \vrule & # \vrule & # \vrule & # \vrule \cr
+{\bf Command }&                     & {\bf \hfil Shift \hfil} & {\bf \hfil Alt \hfil}    & {\bf \hfil Ctrl \hfil }   & {\bf\hfil CAPS \hfil }       \cr \tabrule \tabrule
+ Gray {\tt *} & search forward      & search back             & replace/search           & to/from search fold       & select search mode           \cr
+ Ins          & insert char         & insert line             & insert fold              & switch to insert mode     & Insert new page              \cr
+ Del          & delete char         & delete line/fold        & delete line/fold         & switch to overwrite mode  &     \nothing                 \cr
+ Up           & 1 Line Up           & 1 Screen Up             & exit from fold/file      & to the top of the fold    & Mark Up                      \cr
+ Down         & 1 Line Down         & 1 Screen Down           & enter Fold/File/Dir      & to the bottom of the fold & Mark Down                    \cr
+ Left         & 1 char Left         & 1 Word Left             & prev. page               & to the begin of line      & prev. Marked Line            \cr
+ Right        & 1 char Right        & 1 Word Right            & next. page               & to the end of line        & next Marked Line             \cr
+}
+\hrule
+}
+
+%&>>&4 0 4 0
+%&<<&Command table 2
+%\theme{Command table 2:}
+
+\vbox{\offinterlineskip
+\hrule
+\halign{ \strut \vrule # \vrule & # \vrule & # \vrule & # \vrule & # \vrule \cr
+{\bf Command } &                             & {\bf \hfil Shift \hfil} &  {\bf \hfil Ctrl \hfil }               \cr \tabrule \tabrule
+ CAPS+Left     & first/next marked line      &     \nothing            &    first marked line                   \cr
+ CAPS+Right    & last/prev. marked line      &     \nothing            &    last  marked line                   \cr \tabrule
+ Tab           & tab                         & back tab                &  \nothing                              \cr
+ Enter         & next line                   & cut current line        &  \nothing                              \cr
+ BS            & delete previous char        & glue lines              &  \nothing                              \cr
+ F1            & copy char to CCB            & move char to CCB        & copy all chars till end of line to CCB \cr
+ Alt+F1        & copy word to CCB            & move word to CCB        & copy all words till end of line to CCB \cr
+ F2            & copy chars from CCB         & clear CCB               &  \nothing                              \cr
+ F3            & copy line to LCB            & move line to CCB        & copy all lines till end of fold to LCB \cr
+ Shift+F3      & move line to LCB            & move line to CCB        & move all lines till end of fold to LCB \cr
+ F4            & copy lines from LCB         & clear LCB               &    \nothing                            \cr
+ F7            & Stop rec./execute TMacro    & Start recording TMacro  &    \nothing                            \cr \tabrule
+ Gray {\tt +}  & delete current word         & delete end of line      & delete beginning of line               \cr
+ Gray {\tt -}  & delete current word         & delete end of line      & delete beginning of line               \cr
+ Esc           & temporary exit to DOS       & execute current line    &    \nothing                            \cr
+}
+\hrule
+}
+
+%&>>&4 0 4 20
+%&<<&Single commands
+\cmdt{ Alt+Enter }  --  switch AutoIndent on/off
+\cmdt{ CAPS+BS   }  --  unmark last marked line
+\cmdt{ Alt+F4    }  --  execute clipboard
+\cmdt{ F5        }  -- put marked block to stack
+\cmdt{ F6        }  --  get marked block from stack
+\cmdt{ Shift+Ctrl+Alt+Esc } --  Exit without saving
+\cmdt{ CAPS + '1'}  --   switch to Qq keyboard as alt
+\cmdt{ CAPS + '2'}  --   switch to Qj keyboard as alt
+\cmdt{ CAPS + '3'}  --   switch to Q\# keyboard as alt
+\cmdt{ Ctrl + 'S'}  --   switch status line ON/OFF
+
+%&>>&A 0 A 0
+
+%&>>&1 0 1 C

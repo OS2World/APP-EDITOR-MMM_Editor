@@ -1,0 +1,20 @@
+all:    mmm_cfg.exe mm2.exe
+
+CFLAGS=-bt=OS2V2 -ox -3 -d__OS2__=1
+CPP=wpp386
+LINK=WLink
+
+.cpp.obj:
+    $(CPP) $(CFLAGS) $[*
+
+mm2.exe : mmmx.obj mmmtext.obj mmm_os2.obj mmmgrep.obj mmm_nunx.obj
+    $(LINK) sys OS2V2 name mm2.exe file mmmx.obj file mmmtext.obj file mmm_os2.obj file mmmgrep.obj file mmm_nunx.obj
+
+mmm_cfg.exe : mmm_cfg.obj
+    $(LINK) sys OS2V2 name mmm_cfg.exe file mmm_cfg.obj
+
+mmmx.obj     : mmmx.cpp     mmmx.h mmmconst.h mmm_comm.h mmmgrep.h mmm_os2.h
+
+!include makedep.mif
+
+#&>>&12 0 12 0

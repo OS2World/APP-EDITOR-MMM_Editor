@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>Intro to MMM Editor</TITLE>
+</HEAD>
+<BODY>
+<H1>Intro to MMM Editor</H1>
+
+<HR>
+MMM is a text editor
+(now for PCs with 101+ key keyboard, but maybe later for Sun, Alpha, ...)
+Versions for following operating systems are avialable:
+
+<UL>
+<LI>  DOS (WATCOM C++ compiler)
+<LI>  OS2 (WATCOM C++ compiler)
+<LI>  Linux console (GNU C++ compiler)
+<LI>  Windows 95/NT console (Microsoft visual C++ compiler)
+</UL>
+
+<HR>
+Features avialable:
+<UL>
+<LI> Fold support.
+<LI> Regular expressions search.
+<LI> Tunable keyboard layout.
+<LI> Tunable codepage layout.
+<LI> Tunable color set.
+<LI> Macrocommands as a sequence of keystrokes.
+<LI> Macrocommands as a programs (own language)
+<LI> Long filenames (not 8.3 as in DOS).
+<LI> Some hypertext features.
+</UL>
+
+<DT>
+Not avialable text formatting, multiple fonts, printing and other
+stuff you can find in text processors like MS-WORD ...
+Also not avialable UnDo feature, but I'll add it later.
+
+<HR>
+For compiling editor under DOS, OS2, Linux you must enter mmm directory
+and say
+<DT> <TT>MAKE -f makefilename</TT> <DT>
+where <TT>makefilename</TT> is
+<UL>
+<DT> <TT>makelnx</TT> - makefile for Linux
+<DT> <TT>makedos</TT> - makefile for DOS
+<DT> <TT>makeos2</TT> - makefile for OS2
+</UL>
+
+<DT>
+For compiling editor under Windows95/NT you must create a project with
+two targets: <TT>mmmw</TT> and <TT>mmm_cfg</TT>.
+The sources for <TT>mmmw</TT> are:
+<TT>mmmx.cpp, mmmtext.cpp, mmmgrep.cpp, mmm_nunx.cpp, mmm_w95.cpp</TT>
+The source for <TT>mmm_cfg</TT> is <TT>mmm_cfg.cpp</TT>.
+
+<DT>
+After compiling you can use MMM, but the only function avialable without config
+is <tt>ABORT</TT> (Ctrl+Alt+Shift+Esc keystroke) - exiting from
+editor without saving anything. To work normally you must create config
+file <TT>mmm_base.cfg</TT> by <TT>mmm_cfg</TT> utility by typing
+<TT>mmm_cfg configfile</TT>.
+
+<DT>
+Under DOS, OS2, Win OS-es editor looks for <TT>MMM</TT> environment variable and,
+if this variable is defined, opens <TT>mmm_base.cfg</TT> file in
+directory pointed by <TT>MMM</TT>.
+    Example: <TT>mmm=c:\mim</TT>
+    then config file is <TT>c:\mim\mmm_base.cfg</TT>
+If variable is not defined,
+then config file is in directory in which <TT>mm*.exe</TT> lies, for
+example in <TT>C:\BIN</TT>
+<DT>
+Under Linux OS config file must be in user's home, for example in
+<TT>/home/machulsk</TT> for user <TT>machulsk</TT>
+
+<DT> mmm_cfg generates file with
+<A HREF="mmmkbd.html">default keyboard layout</A> Now you're ready to
+use MMM. But please read description of default keyboard layout carefully.
+
+<HR>
+<B>Note:</B> Under Linux, editor switches keyboard into RAW mode hence
+you can't use MMM on X-terminal or through telnet. I think later
+version with <TT>getc</TT> keyboard will be written.
+Then editor will work on Suns, Alphas, Crays, ... everywhere. RULEZ.
+
+Now I'm working on X11R4+ version of editor. Than you can compile,
+tune and use it on every Unix with XFree.
+But I don't know what about OpenWindows and other X-s.
+Maybe their APIs has differences with XFree.
+
+<HR>
+<H3>Description of main concepts and HOWTO</H3>
+<DT>
+When run mmm editor, you can see usual text and cursor on it.
+You can move cursor by pressing arrow buttons and type letters by
+pressing usual buttons (letters and digits).
+You can quit from mmm (Alt+UpArrow) or enter into another files (Ald+DownArrow).
+Some lines of your text are white (usual lines) and some are yellow
+(yellow lines are Folds). You can place cursor on yellow line
+and press Ald+DownArrow to enter this Fold. There you can type
+more text. You can insert new Fold in current position by
+pressing Alt+Ins or delete current Fold/Line.
+Fold concept helps you to structurize text of your program.
+
+<DT>
+<b>How to Search</b>
+Press Ctrl+'*' (gray '*' but not white '*' above '8' digit),
+and You'll find yourself in Search Page.
+Then insert empty line, type expression you want to search and
+press Ctrl+'*' one more time to return to your text.
+Now You can search forward by pressing '*' or backward by pressing
+Shift+'*'. If You want to search regular expressions (wildcars,
+[],{}, ... as in VI) then you have to start your expression from
+backslash with space after it.
+
+<DT>
+<b>How to Replace</b> Your search-expression must looks the foolowing way:
+<tt>What to Find\ What To Substitute </tt> (backslash with space separates
+two expressions) After that you can press Alt+'*' to replace.
+
+<DT>
+<b>How to Execute program from within MMM</b> type expression you want send to
+command interpreter and press Shift+Esc on that line. If the
+Line under cursor was Fold then all lines from that fold will be executed.
+
+<DT>
+<b>What is Block?</b> you can mark line by pressing Caps+UpArrow or
+Caps+DownArrow on it, and so you can mark a lot of lines.
+When later you type something in one of the marked lines, everything
+you type will be written syncronous in every marked line.
+
+<DT>
+<B>How to enter into file with name</b> /<TT>my file with spaces in name</TT>/
+<b>from within editor?</B> Type
+      <DT> <TT>"my file with spaces in name"</TT> <DT>
+put cursor on /<TT>my</TT>/ or /<TT>name</TT>/ word, press Alt+DownArrow and
+you will find yourself in that file. If you place cursor on one of
+the other words (<tt>spaces</TT> for example) then editor will open file
+with short name (here: <tt>spaces</TT>).
+
+<DT>
+<B>What is in status line?</b>
+    <li> number of current line in file. These numbers are preserved during
+        editing the file (new lines have 0 number). This feature is
+        useful for reading compiler diagnostics (ex: Watcom's .err files)
+    <li> X-coordinate of cursor
+    <li> Hex ASCII code of symol under cursor
+    <li> SI/SS - search mode (insensetive/sensetive)
+    <li> ins/ovr - typing mode (insert/overwrite)
+    <li> AI/.. - autoindent mode
+    <li> sacC/.... - modifiers mask (Shift, Alt, Ctrl, Caps)
+    <li> Q/й/я/╒ - Current keyboard layout (qwerty / йцукенг / яверты / pseudographics)
+    <li> filename
+    <li> depth in file
+    <li> number of pages open (min 2: File, ConstPage)
+    <li> number of marked lines saved in buffer
+    <li> current directory
+
+<HR>
+If you encounter a problem with MMM then visit
+<A HREF="http://shade.msu.ru/~machulsk">my homepage</A>
+& mail me
+<DT>
+scuse me for some grammar mistakes, but my native language is Russian
+</BODY>
+</HTML>
+&>>&88 0 F 2E

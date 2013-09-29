@@ -1,0 +1,20 @@
+
+mmmtext.obj  : mmmtext.cpp  mmmx.h mmm_comm.h mmmgrep.h mmmconst.h
+
+mmm_os2.obj  : mmm_os2.cpp  mmm_os2.h  mmmx.h mmmconst.h
+mmm_dos.obj  : mmm_dos.cpp  mmm_dos.h  mmmx.h mmmconst.h
+mmm_w95.obj  : mmm_w95.cpp  mmm_w95.h  mmmx.h mmmconst.h
+
+mmmgrep.obj  : mmmgrep.cpp  mmmgrep.h  mmmx.h mmmconst.h
+
+mmm_nunx.obj : mmm_nunx.cpp mmm_comm.h mmmx.h mmmconst.h
+
+mmm_cfg.obj  : mmm_cfg.cpp  mmmconst.h
+
+mmmtext.o  : mmmtext.cpp  mmmx.h mmm_comm.h mmmgrep.h mmmconst.h
+mmm_lnx.o  : mmm_lnx.cpp  mmm_lnx.h  mmmx.h mmmconst.h
+mmmgrep.o  : mmmgrep.cpp  mmmgrep.h  mmmx.h mmmconst.h
+mmm_nunx.o : mmm_nunx.cpp mmm_comm.h mmmx.h mmmconst.h
+mmm_cfg.o  : mmm_cfg.cpp  mmmconst.h
+
+#&>>&12 0 12 5

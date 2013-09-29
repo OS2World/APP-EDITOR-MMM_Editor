@@ -1,0 +1,20 @@
+all:    mmm_cfg.exe mmmx.exe mmmx.obj mmm_dos.obj mmmgrep.obj mmm_nunx.obj
+
+CFLAGS=-bt=DOS -ox -3 -mc
+CPP=wpp
+LINK=Wlink
+
+.cpp.obj:
+    $(CPP) $(CFLAGS) $[*
+
+mmmx.exe : mmmx.obj mmmtext.obj mmm_dos.obj mmmgrep.obj mmm_nunx.obj
+    $(LINK) sys DOS name mmmx.exe file mmmx.obj file mmmtext.obj file mmm_dos.obj file mmmgrep.obj file mmm_nunx.obj
+
+mmm_cfg.exe : mmm_cfg.obj
+    $(LINK) sys DOS name mmm_cfg.exe file mmm_cfg.obj
+
+mmmx.obj     : mmmx.cpp     mmmx.h mmmconst.h mmm_comm.h mmmgrep.h mmm_dos.h
+
+!include makedep.mif
+
+#&>>&13 0 F 0
